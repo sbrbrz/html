@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>体重計算</title></head>
+<body>
+    <input type="number" id="height" placeholder="身長(cm)">
+    <select id="gender">
+        <option value="male">男性</option>
+        <option value="female">女性</option>
+    </select>
+    <button onclick="calc()">計算</button>
+    <p id="result"></p>
+    <script>
+        function calc() {
+            let h = parseFloat(document.getElementById("height").value) / 100;
+            let g = document.getElementById("gender").value;
+            let w = g === "male" ? 22 * h * h : 21 * h * h;
+            document.getElementById("result").innerText = "理想体重は " + w.toFixed(1) + " kg です。";
+        }
+    </script>
+</body>
+</html>
